@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#1B3869">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About Us — Fiduciam Global</title>
+<meta name="description" content="Learn about Fiduciam Global Consulting — our story, values, vision, and mission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="pgbar"></div>
+
+  <div class="topbar">
+    <span>Fiduciam Global — For all your business endeavors</span>
+    <a href="mailto:info@fiduciamglobal.me" class="topbar-email">info@fiduciamglobal.me</a>
+  </div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/Fiduciam-Final-Logo-Color.png"
+             alt="Fiduciam Global"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none">Fiduciam Global</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About Us</a></li>
+        <li class="has-drop">
+          <a href="services.html" class="nav-link">Our Services ▾</a>
+          <div class="drop">
+            <a href="sustainability.html" class="drop-item"><div class="drop-icon">🌿</div><div><div class="drop-label">Sustainability</div><div class="drop-sub">ESG &amp; green transformation</div></div></a>
+            <a href="strategy.html" class="drop-item"><div class="drop-icon">♟</div><div><div class="drop-label">Strategy</div><div class="drop-sub">Future-ready competitive positioning</div></div></a>
+            <a href="digital-transformation.html" class="drop-item"><div class="drop-icon">⚡</div><div><div class="drop-label">Digital Transformation</div><div class="drop-sub">AI, analytics &amp; automation</div></div></a>
+            <a href="supply-chain.html" class="drop-item"><div class="drop-icon">🔗</div><div><div class="drop-label">Supply Chain &amp; Operations</div><div class="drop-sub">End-to-end operational excellence</div></div></a>
+            <a href="finance-transformation.html" class="drop-item"><div class="drop-icon">💰</div><div><div class="drop-label">Finance Transformation</div><div class="drop-sub">CFO agenda &amp; financial modernisation</div></div></a>
+            <a href="government-financial.html" class="drop-item"><div class="drop-icon">🏛</div><div><div class="drop-label">Govt. Financial Management</div><div class="drop-sub">Public sector governance</div></div></a>
+            <a href="risk-compliance.html" class="drop-item"><div class="drop-icon">🛡</div><div><div class="drop-label">Risk &amp; Compliance</div><div class="drop-sub">Enterprise risk &amp; regulatory alignment</div></div></a>
+            <a href="corporate-finance.html" class="drop-item"><div class="drop-icon">📊</div><div><div class="drop-label">Corporate Finance &amp; Restructuring</div><div class="drop-sub">Capital optimisation &amp; restructuring</div></div></a>
+            <a href="mergers-acquisitions.html" class="drop-item"><div class="drop-icon">🤝</div><div><div class="drop-label">Mergers &amp; Acquisitions</div><div class="drop-sub">Deal advisory &amp; integration</div></div></a>
+            <a href="data-analytics.html" class="drop-item"><div class="drop-icon">📈</div><div><div class="drop-label">Data Analytics</div><div class="drop-sub">Insight-driven decision making</div></div></a>
+          </div>
+        </li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+      <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mobNav">
+    <button class="mob-close" onclick="closeMob()">&#10005;</button>
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <div class="mob-divider"></div>
+    <a href="about.html" onclick="closeMob()">About Us</a>
+    <div class="mob-divider"></div>
+    <span class="mob-services-label" onclick="toggleMobServices()">Our Services <span id="mobServArrow">&#9662;</span></span>
+    <div class="mob-services-sub" id="mobServicesSub">
+      <a href="strategy.html" onclick="closeMob()">Strategy</a>
+      <a href="digital-transformation.html" onclick="closeMob()">Digital Transformation</a>
+      <a href="finance-transformation.html" onclick="closeMob()">Finance Transformation</a>
+      <a href="corporate-finance.html" onclick="closeMob()">Corporate Finance</a>
+      <a href="mergers-acquisitions.html" onclick="closeMob()">Mergers &amp; Acquisitions</a>
+      <a href="sustainability.html" onclick="closeMob()">Sustainability</a>
+      <a href="supply-chain.html" onclick="closeMob()">Supply Chain &amp; Operations</a>
+      <a href="risk-compliance.html" onclick="closeMob()">Risk &amp; Compliance</a>
+      <a href="data-analytics.html" onclick="closeMob()">Data Analytics</a>
+      <a href="government-financial.html" onclick="closeMob()">Govt. Financial Management</a>
+    </div>
+    <div class="mob-divider"></div>
+    <a href="contact.html" onclick="closeMob()">Get In Touch</a>
+  </div>
+
+<div class="hero-inner-pg">
+    <div class="container hip-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">About Us</span></div>
+      <h1 class="hip-title">About <em>Fiduciam</em><br>Global</h1>
+      <p class="hip-sub">We empower organizations through innovation, sustainability, and strategic transformation — building resilient futures with unwavering integrity.</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section class="sec bg-white">
+    <div class="container">
+      <div class="two-col">
+        <div class="img-wrap rvl">
+          <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/2150970181-e1715796228953.jpg"
+               alt="Fiduciam team"
+               onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80'">
+          <div class="img-badge">
+            <div class="ibadge-n">2024</div>
+            <div class="ibadge-t">Shaping sustainable futures since our founding</div>
+          </div>
+        </div>
+        <div class="rvr">
+          <div class="label">What We Do</div>
+          <h2 class="st">Making you ready<br>for the <em>future</em></h2>
+          <p style="color:var(--t2);font-weight:300;line-height:1.85;margin:.75rem 0">We empower you to view the world through a lens of innovation, uncovering unexpected opportunities and achieving results that seamlessly bridge the present with the possibilities of the future.</p>
+          <p class="sec-prose-mb2">At Fiduciam Global Consulting, we distinguish ourselves through our comprehensive approach, local expertise, and unwavering dedication to innovation and sustainability.</p>
+          <a href="contact.html" class="btn btn-dark">Let's Connect →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section class="sec diff-section">
+    <div class="container">
+      <div class="sh rv">
+        <div><div class="label">What Makes Us Different</div><h2 class="st">Eight reasons clients<br>choose <em>Fiduciam</em></h2></div>
+        <p class="sdesc">Our comprehensive approach, local expertise, and unwavering dedication to innovation and sustainability set us apart.</p>
+      </div>
+      <div class="cards-4">
+        <div class="card rv"><div class="card-icon">🔄</div><h3>Holistic, End-to-End Solutions</h3><p>We go beyond traditional consultancy by providing integrated solutions that cover strategy, implementation, and continuous improvement, ensuring sustainable and impactful results.</p></div>
+        <div class="card rv d1"><div class="card-icon">🇸🇦</div><h3>Deep Local Insight</h3><p>Rooted in Saudi Arabia, we have an in-depth understanding of the local market dynamics, cultural intricacies, and regulatory environment, allowing us to offer precisely tailored solutions.</p></div>
+        <div class="card rv d2"><div class="card-icon">💡</div><h3>Innovation at Our Core</h3><p>Innovation is central to our philosophy. We harness the latest technologies and forward-thinking strategies to develop transformative solutions that keep clients ahead of industry trends.</p></div>
+        <div class="card rv d3"><div class="card-icon">🌿</div><h3>Commitment to Sustainability</h3><p>Sustainability is embedded in everything we do. We drive long-term value by incorporating sustainable practices that deliver positive environmental and social impacts.</p></div>
+        <div class="card rv"><div class="card-icon">⚡</div><h3>Agile and Adaptive</h3><p>In a rapidly evolving world, our agility and adaptability enable us to respond swiftly to emerging trends and opportunities, ensuring our clients remain resilient and future-ready.</p></div>
+        <div class="card rv d1"><div class="card-icon">🤝</div><h3>Collaborative Partnerships</h3><p>We forge strong partnerships with our clients, working closely together to create a collaborative environment that fosters shared success and enduring relationships.</p></div>
+        <div class="card rv d2"><div class="card-icon">🏆</div><h3>Excellence and Integrity</h3><p>Our commitment to excellence and integrity is unwavering. We uphold the highest standards, ensuring that our clients receive exceptional quality and trustworthy service.</p></div>
+        <div class="card rv d3"><div class="card-icon">🌐</div><h3>Global Expertise, Local Execution</h3><p>We bring a global perspective and world-class expertise while executing strategies with a deep understanding of the local context, ensuring relevant and effective solutions.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BELIEVE + VISION + MISSION -->
+  <section class="sec bg-white">
+    <div class="container">
+      <div class="two-col-text">
+        <div class="rvl">
+          <div class="label">What We Believe</div>
+          <h2 class="st" style="margin-bottom:2rem">Visionary actions shape a<br><em>sustainable future</em></h2>
+          <blockquote class="bq">"Leading with innovation requires the courage to embrace change. While the path to doing what's right is often challenging, it always leads to meaningful and lasting impact."</blockquote>
+          <p class="sec-prose-mb">We believe that visionary actions shape a sustainable future. Leading with innovation requires the courage to embrace change, and our team is dedicated to walking that path alongside our clients.</p>
+          <p class="sec-prose">We deliver results by combining a people-centric approach with analytics and leading practices to enact solutions, processes, and culture that endure.</p>
+        </div>
+        <div class="rvr">
+          <div class="vision-card">
+            <h4><span class="vi">👁</span> Our Vision</h4>
+            <p>At Fiduciam Global Consulting, our mission is to drive sustainable transformation through innovative solutions, empowering organizations to navigate the complexities of today and shape a prosperous, resilient future. We are dedicated to fostering a culture of continuous improvement, where courageous leadership and ethical practices lead to enduring success and positive global impact.</p>
+          </div>
+          <div class="vision-card">
+            <h4><span class="vi">🧭</span> Our Mission &amp; Values</h4>
+            <ul>
+              <li><strong>Innovation:</strong> Championing forward-thinking and creativity, continually seeking groundbreaking solutions.</li>
+              <li><strong>Sustainability:</strong> Committed to practices that support long-term environmental, social, and economic health.</li>
+              <li><strong>Integrity:</strong> Upholding unwavering standards of honesty, transparency, and ethics.</li>
+              <li><strong>Collaboration:</strong> Believing in the strength of partnership and teamwork for shared success.</li>
+              <li><strong>Excellence:</strong> Dedicated to delivering exceptional quality and value in all endeavors.</li>
+              <li><strong>Adaptability:</strong> Thriving in dynamic environments with agility and resilience.</li>
+              <li><strong>Leadership:</strong> Leading with vision and purpose, inspiring others to realize their full potential.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-band">
+    <div class="container">
+      <div class="label">Our Leadership</div>
+      <h2>A cosmopolitan team of <em>world-class experts</em></h2>
+      <p class="rv">The Fiduciam Global Consulting team brings together our top experts in the global economy, markets, portfolio construction, and geopolitics. We provide insights and strategies to help organizations navigate complex financial landscapes, ensuring informed decisions and optimized investments for sustainable growth in an ever-evolving global market.<br><br>The personality of a consulting business is shaped primarily by its consultants. Our team is motivated, cosmopolitan, and happy to go the extra mile with our clients — which makes them Fiduciam compatible.</p>
+      <div class="team-grid rv">
+        <div class="team-card">
+          <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/7.png"
+               alt="Mirza Mahmood Ul Hasan"
+               onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80'">
+          <div class="team-info">
+            <div class="team-name">Mirza Mahmood Ul Hasan</div>
+            <div class="team-role">Managing Director / Senior Partner</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/8.png"
+               alt="Nadeem Haider Ali"
+               onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'">
+          <div class="team-info">
+            <div class="team-name">Nadeem Haider Ali</div>
+            <div class="team-role">Senior Partner</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/ali-e1717095054557.jpeg"
+               alt="Muhammad Ali"
+               onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80'">
+          <div class="team-info">
+            <div class="team-name">Muhammad Ali</div>
+            <div class="team-role">Senior Partner</div>
+          </div>
+        </div>
+      </div>
+      <div class="team-btns rv">
+        <a href="contact.html" class="btn btn-white">Work With Us →</a>
+        <a href="services.html" class="btn btn-ghost-w">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-txt">Fiduciam Global</div>
+          <div class="footer-tagline">For all your business endeavors</div>
+          <p>We deliver results by combining a people-centric approach with analytics and leading practices to enact solutions, processes, and culture.</p>
+          <a href="mailto:info@fiduciamglobal.me" class="f-email">info@fiduciamglobal.me</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contact.html">Get In Touch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services I</h4>
+          <ul>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="strategy.html">Strategy</a></li>
+            <li><a href="digital-transformation.html">Digital Transformation</a></li>
+            <li><a href="supply-chain.html">Supply Chain &amp; Operations</a></li>
+            <li><a href="finance-transformation.html">Finance Transformation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services II</h4>
+          <ul>
+            <li><a href="government-financial.html">Govt. Financial Management</a></li>
+            <li><a href="risk-compliance.html">Risk &amp; Compliance</a></li>
+            <li><a href="corporate-finance.html">Corporate Finance &amp; Restructuring</a></li>
+            <li><a href="mergers-acquisitions.html">Mergers &amp; Acquisitions</a></li>
+            <li><a href="data-analytics.html">Data Analytics Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Fiduciam Global Consulting. All rights reserved.</span>
+        <div class="f-links">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

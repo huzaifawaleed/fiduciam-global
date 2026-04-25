@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#1B3869">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Get In Touch — Fiduciam Global</title>
+<meta name="description" content="Get in touch with Fiduciam Global Consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="pgbar"></div>
+
+  <div class="topbar">
+    <span>Fiduciam Global — For all your business endeavors</span>
+    <a href="mailto:info@fiduciamglobal.me" class="topbar-email">info@fiduciamglobal.me</a>
+  </div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/Fiduciam-Final-Logo-Color.png"
+             alt="Fiduciam Global"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none">Fiduciam Global</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="has-drop">
+          <a href="services.html" class="nav-link">Our Services ▾</a>
+          <div class="drop">
+            <a href="sustainability.html" class="drop-item"><div class="drop-icon">🌿</div><div><div class="drop-label">Sustainability</div><div class="drop-sub">ESG &amp; green transformation</div></div></a>
+            <a href="strategy.html" class="drop-item"><div class="drop-icon">♟</div><div><div class="drop-label">Strategy</div><div class="drop-sub">Future-ready competitive positioning</div></div></a>
+            <a href="digital-transformation.html" class="drop-item"><div class="drop-icon">⚡</div><div><div class="drop-label">Digital Transformation</div><div class="drop-sub">AI, analytics &amp; automation</div></div></a>
+            <a href="supply-chain.html" class="drop-item"><div class="drop-icon">🔗</div><div><div class="drop-label">Supply Chain &amp; Operations</div><div class="drop-sub">End-to-end operational excellence</div></div></a>
+            <a href="finance-transformation.html" class="drop-item"><div class="drop-icon">💰</div><div><div class="drop-label">Finance Transformation</div><div class="drop-sub">CFO agenda &amp; financial modernisation</div></div></a>
+            <a href="government-financial.html" class="drop-item"><div class="drop-icon">🏛</div><div><div class="drop-label">Govt. Financial Management</div><div class="drop-sub">Public sector governance</div></div></a>
+            <a href="risk-compliance.html" class="drop-item"><div class="drop-icon">🛡</div><div><div class="drop-label">Risk &amp; Compliance</div><div class="drop-sub">Enterprise risk &amp; regulatory alignment</div></div></a>
+            <a href="corporate-finance.html" class="drop-item"><div class="drop-icon">📊</div><div><div class="drop-label">Corporate Finance &amp; Restructuring</div><div class="drop-sub">Capital optimisation &amp; restructuring</div></div></a>
+            <a href="mergers-acquisitions.html" class="drop-item"><div class="drop-icon">🤝</div><div><div class="drop-label">Mergers &amp; Acquisitions</div><div class="drop-sub">Deal advisory &amp; integration</div></div></a>
+            <a href="data-analytics.html" class="drop-item"><div class="drop-icon">📈</div><div><div class="drop-label">Data Analytics</div><div class="drop-sub">Insight-driven decision making</div></div></a>
+          </div>
+        </li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+      <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mobNav">
+    <button class="mob-close" onclick="closeMob()">&#10005;</button>
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <div class="mob-divider"></div>
+    <a href="about.html" onclick="closeMob()">About Us</a>
+    <div class="mob-divider"></div>
+    <span class="mob-services-label" onclick="toggleMobServices()">Our Services <span id="mobServArrow">&#9662;</span></span>
+    <div class="mob-services-sub" id="mobServicesSub">
+      <a href="strategy.html" onclick="closeMob()">Strategy</a>
+      <a href="digital-transformation.html" onclick="closeMob()">Digital Transformation</a>
+      <a href="finance-transformation.html" onclick="closeMob()">Finance Transformation</a>
+      <a href="corporate-finance.html" onclick="closeMob()">Corporate Finance</a>
+      <a href="mergers-acquisitions.html" onclick="closeMob()">Mergers &amp; Acquisitions</a>
+      <a href="sustainability.html" onclick="closeMob()">Sustainability</a>
+      <a href="supply-chain.html" onclick="closeMob()">Supply Chain &amp; Operations</a>
+      <a href="risk-compliance.html" onclick="closeMob()">Risk &amp; Compliance</a>
+      <a href="data-analytics.html" onclick="closeMob()">Data Analytics</a>
+      <a href="government-financial.html" onclick="closeMob()">Govt. Financial Management</a>
+    </div>
+    <div class="mob-divider"></div>
+    <a href="contact.html" onclick="closeMob()">Get In Touch</a>
+  </div>
+
+<div class="hero-inner-pg">
+    <div class="container hip-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span class="current">Get In Touch</span></div>
+      <h1 class="hip-title">Make your idea<br>into <em>reality</em></h1>
+      <p class="hip-sub">Whether you're looking to transform your organization, explore strategic opportunities, or simply learn more about our capabilities — we're here to help.</p>
+    </div>
+  </div>
+
+  <section class="sec bg-white">
+    <div class="container">
+      <div class="two-col">
+        <div class="rvl">
+          <div class="label">Contact Us</div>
+          <h2 class="st" style="margin-bottom:1.25rem">Let's start the<br><em>conversation</em></h2>
+          <p style="color:var(--t2);font-weight:300;line-height:1.85;margin-bottom:2rem">Reach out and our team will get back to you within one business day. For urgent matters, please contact us directly by phone or email.</p>
+          <div>
+            <div class="cm"><div class="cm-icon">✉️</div><div><div class="cm-label">Email</div><div class="cm-val">info@fiduciamglobal.me</div></div></div>
+            <div class="cm"><div class="cm-icon">📞</div><div><div class="cm-label">Phone — Al Khobar</div><div class="cm-val">+966 13 896 1700</div></div></div>
+            <div class="cm"><div class="cm-icon">📍</div><div><div class="cm-label">Al Khobar Office</div><div class="cm-val">Blue Tower, King Faisal Street, Corniche, Al Khobar, Saudi Arabia</div></div></div>
+            <div class="cm"><div class="cm-icon">📍</div><div><div class="cm-label">Jeddah Office</div><div class="cm-val">Saudi Business Center, Floor 4, Office 414, Madina Road, Ashrafia, Jeddah, Saudi Arabia</div></div></div>
+          </div>
+        </div>
+        <div class="rvr">
+          <form class="cform" id="contactForm">
+            <h3>Send us a message</h3>
+            <div class="sub">We'll reply within one business day.</div>
+            <div class="frow">
+              <div class="fg"><label>First Name</label><input type="text" placeholder="John" required></div>
+              <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+            </div>
+            <div class="fg"><label>Email Address</label><input type="email" placeholder="john@company.com" required></div>
+            <div class="fg"><label>Organization</label><input type="text" placeholder="Your company name"></div>
+            <div class="fg"><label>Service of Interest</label>
+              <select>
+                <option value="">Select a service</option>
+                <option>Sustainability</option><option>Strategy</option>
+                <option>Digital Transformation</option><option>Supply Chain &amp; Operations</option>
+                <option>Finance Transformation</option><option>Government Financial Management</option>
+                <option>Risk &amp; Compliance Services</option><option>Corporate Finance &amp; Restructuring</option>
+                <option>Mergers &amp; Acquisitions (M&amp;A)</option><option>Data Analytics Services</option>
+              </select>
+            </div>
+            <div class="fg"><label>Message</label><textarea placeholder="Tell us about your project or challenge..." required></textarea></div>
+            <button type="submit" class="fsub">Send Message →</button>
+            <p class="fnote">Your information is kept confidential and never shared with third parties.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICES -->
+  <section class="sec bg-light">
+    <div class="container">
+      <div class="rv" style="margin-bottom:3rem"><div class="label">Our Offices</div><h2 class="st">Where you <em>find us</em></h2></div>
+      <div class="cards-2">
+        <div class="office-card rv">
+          <div class="office-tag">🏢 Primary Office</div>
+          <div class="office-city">Al Khobar</div>
+          <div class="office-country">Saudi Arabia · Eastern Province</div>
+          <div class="office-row"><i>📍</i><span>Blue Tower, King Faisal Street, Corniche, Al Khobar, Saudi Arabia</span></div>
+          <div class="office-row"><i>📞</i><span>+966 13 896 1700</span></div>
+          <a href="mailto:info@fiduciamglobal.me" class="office-email">✉ info@fiduciamglobal.me</a>
+        </div>
+        <div class="office-card rv d2">
+          <div class="office-tag">🏢 Regional Office</div>
+          <div class="office-city">Jeddah</div>
+          <div class="office-country">Saudi Arabia · Western Province</div>
+          <div class="office-row"><i>📍</i><span>Saudi Business Center, Floor 4, Office 414, Madina Road, Ashrafia, Jeddah, Saudi Arabia</span></div>
+          <div class="office-row"><i>✉</i><span>info@fiduciamglobal.me</span></div>
+          <a href="mailto:info@fiduciamglobal.me" class="office-email">✉ info@fiduciamglobal.me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-txt">Fiduciam Global</div>
+          <div class="footer-tagline">For all your business endeavors</div>
+          <p>We deliver results by combining a people-centric approach with analytics and leading practices to enact solutions, processes, and culture.</p>
+          <a href="mailto:info@fiduciamglobal.me" class="f-email">info@fiduciamglobal.me</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contact.html">Get In Touch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services I</h4>
+          <ul>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="strategy.html">Strategy</a></li>
+            <li><a href="digital-transformation.html">Digital Transformation</a></li>
+            <li><a href="supply-chain.html">Supply Chain &amp; Operations</a></li>
+            <li><a href="finance-transformation.html">Finance Transformation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services II</h4>
+          <ul>
+            <li><a href="government-financial.html">Govt. Financial Management</a></li>
+            <li><a href="risk-compliance.html">Risk &amp; Compliance</a></li>
+            <li><a href="corporate-finance.html">Corporate Finance &amp; Restructuring</a></li>
+            <li><a href="mergers-acquisitions.html">Mergers &amp; Acquisitions</a></li>
+            <li><a href="data-analytics.html">Data Analytics Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Fiduciam Global Consulting. All rights reserved.</span>
+        <div class="f-links">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

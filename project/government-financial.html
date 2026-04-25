@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#1B3869">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Government Financial Mgmt — Fiduciam Global</title>
+<meta name="description" content="Strengthening public financial management and governance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="pgbar"></div>
+
+  <div class="topbar">
+    <span>Fiduciam Global — For all your business endeavors</span>
+    <a href="mailto:info@fiduciamglobal.me" class="topbar-email">info@fiduciamglobal.me</a>
+  </div>
+
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://fiduciamglobal.me/wp-content/uploads/2024/05/Fiduciam-Final-Logo-Color.png"
+             alt="Fiduciam Global"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none">Fiduciam Global</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li class="has-drop">
+          <a href="services.html" class="nav-link active">Our Services ▾</a>
+          <div class="drop">
+            <a href="sustainability.html" class="drop-item"><div class="drop-icon">🌿</div><div><div class="drop-label">Sustainability</div><div class="drop-sub">ESG &amp; green transformation</div></div></a>
+            <a href="strategy.html" class="drop-item"><div class="drop-icon">♟</div><div><div class="drop-label">Strategy</div><div class="drop-sub">Future-ready competitive positioning</div></div></a>
+            <a href="digital-transformation.html" class="drop-item"><div class="drop-icon">⚡</div><div><div class="drop-label">Digital Transformation</div><div class="drop-sub">AI, analytics &amp; automation</div></div></a>
+            <a href="supply-chain.html" class="drop-item"><div class="drop-icon">🔗</div><div><div class="drop-label">Supply Chain &amp; Operations</div><div class="drop-sub">End-to-end operational excellence</div></div></a>
+            <a href="finance-transformation.html" class="drop-item"><div class="drop-icon">💰</div><div><div class="drop-label">Finance Transformation</div><div class="drop-sub">CFO agenda &amp; financial modernisation</div></div></a>
+            <a href="government-financial.html" class="drop-item"><div class="drop-icon">🏛</div><div><div class="drop-label">Govt. Financial Management</div><div class="drop-sub">Public sector governance</div></div></a>
+            <a href="risk-compliance.html" class="drop-item"><div class="drop-icon">🛡</div><div><div class="drop-label">Risk &amp; Compliance</div><div class="drop-sub">Enterprise risk &amp; regulatory alignment</div></div></a>
+            <a href="corporate-finance.html" class="drop-item"><div class="drop-icon">📊</div><div><div class="drop-label">Corporate Finance &amp; Restructuring</div><div class="drop-sub">Capital optimisation &amp; restructuring</div></div></a>
+            <a href="mergers-acquisitions.html" class="drop-item"><div class="drop-icon">🤝</div><div><div class="drop-label">Mergers &amp; Acquisitions</div><div class="drop-sub">Deal advisory &amp; integration</div></div></a>
+            <a href="data-analytics.html" class="drop-item"><div class="drop-icon">📈</div><div><div class="drop-label">Data Analytics</div><div class="drop-sub">Insight-driven decision making</div></div></a>
+          </div>
+        </li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+      <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mobNav">
+    <button class="mob-close" onclick="closeMob()">&#10005;</button>
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <div class="mob-divider"></div>
+    <a href="about.html" onclick="closeMob()">About Us</a>
+    <div class="mob-divider"></div>
+    <span class="mob-services-label" onclick="toggleMobServices()">Our Services <span id="mobServArrow">&#9662;</span></span>
+    <div class="mob-services-sub" id="mobServicesSub">
+      <a href="strategy.html" onclick="closeMob()">Strategy</a>
+      <a href="digital-transformation.html" onclick="closeMob()">Digital Transformation</a>
+      <a href="finance-transformation.html" onclick="closeMob()">Finance Transformation</a>
+      <a href="corporate-finance.html" onclick="closeMob()">Corporate Finance</a>
+      <a href="mergers-acquisitions.html" onclick="closeMob()">Mergers &amp; Acquisitions</a>
+      <a href="sustainability.html" onclick="closeMob()">Sustainability</a>
+      <a href="supply-chain.html" onclick="closeMob()">Supply Chain &amp; Operations</a>
+      <a href="risk-compliance.html" onclick="closeMob()">Risk &amp; Compliance</a>
+      <a href="data-analytics.html" onclick="closeMob()">Data Analytics</a>
+      <a href="government-financial.html" onclick="closeMob()">Govt. Financial Management</a>
+    </div>
+    <div class="mob-divider"></div>
+    <a href="contact.html" onclick="closeMob()">Get In Touch</a>
+  </div>
+
+<div class="hero-inner-pg">
+    <div class="container hip-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <a href="services.html">Services</a><span>/</span>
+        <span class="current">Government Financial Management</span>
+      </div>
+      <div class="hip-tag">🏛 Government Financial Management</div>
+      <h1 class="hip-title">Government Financial Management</h1>
+      <p class="hip-sub">Strengthening public financial management, governance, and accountability in the public sector</p>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="sec bg-white">
+    <div class="container">
+      <div class="two-col">
+        <div class="rvl">
+          <div class="label">Overview</div>
+          <h2 class="st">What we do in<br><em>Government Financial Management</em></h2>
+          <p style="color:var(--t2);font-weight:300;line-height:1.85;margin:.75rem 0 1rem">Fiduciam Global Consulting provides specialized services for public sector financial management, governance, and accountability. We understand the unique challenges and constraints of the public sector — from political dynamics and regulatory complexity to capacity constraints and accountability requirements.</p>
+          <p style="color:var(--t2);font-weight:300;line-height:1.85;margin-bottom:2rem">Our government finance practice brings together experts with deep public sector experience across Saudi Arabia and internationally. We support governments and public institutions in building more effective, transparent, and efficient financial management systems.</p>
+          <a href="contact.html" class="btn btn-dark">Discuss Your Needs →</a>
+        </div>
+        <div class="rvr">
+          <div class="cap-grid"><div class="cap-card rv "><div class="cap-icon">📋</div><h4>Public Financial Management</h4><p>Strengthening budget formulation, execution, reporting, and audit processes in alignment with international public sector standards.</p></div><div class="cap-card rv d2"><div class="cap-icon">💹</div><h4>Budget Reform</h4><p>Designing and implementing program-based budgeting, medium-term fiscal frameworks, and performance budgeting systems.</p></div><div class="cap-card rv d3"><div class="cap-icon">🏦</div><h4>Treasury Operations</h4><p>Modernizing treasury functions including cash management, debt management, and government banking arrangements.</p></div><div class="cap-card rv d4"><div class="cap-icon">🔍</div><h4>Audit & Accountability</h4><p>Strengthening internal audit functions, financial controls, and accountability frameworks across government entities.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE HELP -->
+  <section class="sec bg-light">
+    <div class="container">
+      <div class="two-col">
+        <div class="rvl">
+          <div class="label">How We Help</div>
+          <h2 class="st">Our approach to<br><em>government financial management</em></h2>
+          <p style="color:var(--t2);font-weight:300;line-height:1.85;margin:.75rem 0 0">We take a structured, collaborative approach — working closely with your team at every stage to ensure the solutions we develop are practical, owned internally, and built to last.</p>
+        </div>
+        <div class="rvr">
+          <div class="steps"><div class="step-row rv d1"><div class="step-n">01</div><div><div class="step-t">Assess</div><div class="step-d">We conduct a comprehensive assessment of your public financial management systems using internationally recognized frameworks.</div></div></div><div class="step-row rv d2"><div class="step-n">02</div><div><div class="step-t">Design</div><div class="step-d">We develop reform blueprints tailored to your institutional context, capacity, and political economy.</div></div></div><div class="step-row rv d3"><div class="step-n">03</div><div><div class="step-t">Implement</div><div class="step-d">We provide hands-on technical assistance, capacity building, and change management support throughout implementation.</div></div></div><div class="step-row rv d4"><div class="step-n">04</div><div><div class="step-t">Institutionalize</div><div class="step-d">We help embed reforms into institutional culture and practice through training, systems support, and ongoing advisory.</div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY FIDUCIAM -->
+  <section class="sec bg-white">
+    <div class="container">
+      <div class="rv" style="max-width:720px;margin:0 auto;text-align:center">
+        <div class="label" style="justify-content:center">Why Fiduciam</div>
+        <h2 class="st" style="text-align:center;margin-bottom:1.5rem">The right partner for your<br><em>Government Financial Management</em> journey</h2>
+      </div>
+      <div class="cards-3 rv">
+        <div class="card"><div class="card-icon">🇸🇦</div><h3>Local Expertise</h3><p>Deep understanding of the Saudi regulatory environment, market dynamics, and business culture — combined with international best practices.</p></div>
+        <div class="card d1"><div class="card-icon">🤝</div><h3>Collaborative Approach</h3><p>We work as true partners — embedding with your team, building capability, and ensuring solutions are owned and sustained long after we leave.</p></div>
+        <div class="card d2"><div class="card-icon">📊</div><h3>Results-Driven</h3><p>We measure success by the outcomes we deliver for your organization — not the volume of reports we produce or the length of our engagement.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="team-band">
+    <div class="container">
+      <div class="label">🏛 Government Financial Management</div>
+      <h2>Ready to begin your<br><em>government financial management</em> journey?</h2>
+      <p class="rv">Our government financial management experts are ready to discuss your specific challenges and how Fiduciam Global can help you achieve your goals.</p>
+      <div class="team-btns rv">
+        <a href="contact.html" class="btn btn-white">Start the Conversation →</a>
+        <a href="services.html" class="btn btn-ghost-w">All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <div class="related">
+    <div class="container">
+      <p style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:.5rem">Related Services</p>
+      <div class="related-grid"><a href="risk-compliance.html" class="related-chip">→ Risk & Compliance</a><a href="finance-transformation.html" class="related-chip">→ Finance Transformation</a><a href="data-analytics.html" class="related-chip">→ Data Analytics</a></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-txt">Fiduciam Global</div>
+          <div class="footer-tagline">For all your business endeavors</div>
+          <p>We deliver results by combining a people-centric approach with analytics and leading practices to enact solutions, processes, and culture.</p>
+          <a href="mailto:info@fiduciamglobal.me" class="f-email">info@fiduciamglobal.me</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="contact.html">Get In Touch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services I</h4>
+          <ul>
+            <li><a href="sustainability.html">Sustainability</a></li>
+            <li><a href="strategy.html">Strategy</a></li>
+            <li><a href="digital-transformation.html">Digital Transformation</a></li>
+            <li><a href="supply-chain.html">Supply Chain &amp; Operations</a></li>
+            <li><a href="finance-transformation.html">Finance Transformation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services II</h4>
+          <ul>
+            <li><a href="government-financial.html">Govt. Financial Management</a></li>
+            <li><a href="risk-compliance.html">Risk &amp; Compliance</a></li>
+            <li><a href="corporate-finance.html">Corporate Finance &amp; Restructuring</a></li>
+            <li><a href="mergers-acquisitions.html">Mergers &amp; Acquisitions</a></li>
+            <li><a href="data-analytics.html">Data Analytics Services</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Fiduciam Global Consulting. All rights reserved.</span>
+        <div class="f-links">
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
