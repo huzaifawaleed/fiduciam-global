@@ -1,0 +1,866 @@
+/* ════════════════════════════════════════════════════════════════
+   FIDUCIAM GLOBAL — animations.css
+   Drop-in animation layer. Add AFTER style.css in every HTML file:
+   <link rel="stylesheet" href="css/animations.css">
+
+   Architecture:
+   ┌─────────────────────────────────────────┐
+   │  1. Keyframe Library                    │
+   │  2. Navbar & Topbar                     │
+   │  3. Mobile Nav                          │
+   │  4. Hero Section                        │
+   │  5. Buttons                             │
+   │  6. Cards (all types)                   │
+   │  7. Pillars & Step Rows                 │
+   │  8. Stats Band                          │
+   │  9. Dropdown Menu                       │
+   │ 10. Form Fields                         │
+   │ 11. Section Labels & Headings           │
+   │ 12. Footer                              │
+   │ 13. Misc (chips, badges, val-items)     │
+   │ 14. Reduced-Motion Override             │
+   └─────────────────────────────────────────┘
+════════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════
+   1. KEYFRAME LIBRARY
+   All animation primitives defined once here
+══════════════════════════════════════════════ */
+
+/* Button shimmer sweep — used on .btn-dark and .nav-cta */
+@keyframes shimmerSweep {
+  from { transform: translateX(-120%) skewX(-18deg); }
+  to   { transform: translateX(220%)  skewX(-18deg); }
+}
+
+/* Ripple expand — injected by animations.js on click */
+@keyframes rippleOut {
+  from { transform: scale(0);   opacity: 1;   }
+  to   { transform: scale(4.5); opacity: 0;   }
+}
+
+/* Floating badge bob — .img-badge */
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-7px); }
+}
+
+/* Stat number pop-in — .stat-n on reveal */
+@keyframes statPop {
+  0%    { opacity: 0; transform: translateY(14px) scale(.88); }
+  65%   { opacity: 1; transform: translateY(-2px)  scale(1.04); }
+  100%  { opacity: 1; transform: translateY(0px)   scale(1);    }
+}
+
+/* Mobile nav: panel slide-down */
+@keyframes mobPanelIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+/* Mobile nav: each link slide-up */
+@keyframes mobItemIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Dropdown slide-down */
+@keyframes dropSlide {
+  from { opacity: 0; transform: translateY(-8px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+/* Drop-icon bounce on hover */
+@keyframes iconBounce {
+  0%   { transform: scale(1);    }
+  40%  { transform: scale(1.15) translateY(-3px); }
+  70%  { transform: scale(.97)   translateY(1px);  }
+  100% { transform: scale(1);    }
+}
+
+/* Gold underline sweep — nav links, footer links */
+@keyframes lineReveal {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Pulse ring — hero eyebrow dot */
+@keyframes ringPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(201,152,42,.55); }
+  70%  { box-shadow: 0 0 0 8px rgba(201,152,42,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(201,152,42,0);   }
+}
+
+/* Inner page hero breadcrumb fade */
+@keyframes breadIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+
+/* ══════════════════════════════════════════════
+   2. NAVBAR & TOPBAR
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Smooth shadow + bg deepen as user scrolls
+  WHERE: <nav id="nav">
+  HOW:   JS toggles class="scrolled" at 60px scroll
+*/
+nav {
+  will-change: box-shadow, background-color;
+  transition: box-shadow .35s ease, background-color .35s ease;
+}
+nav.scrolled {
+  background: rgba(250,250,248,1);
+  box-shadow: 0 2px 28px rgba(27,56,105,.11);
+}
+
+/* Logo: subtle scale on hover */
+.nav-logo {
+  transition: transform .22s ease;
+  will-change: transform;
+}
+.nav-logo:hover { transform: scale(1.04); }
+
+/*
+  WHAT:  Gold underline sweep on nav links
+  WHERE: .nav-link anchor tags
+*/
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: .95rem;
+  right: .95rem;
+  height: 1.5px;
+  background: var(--gold);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .22s cubic-bezier(.22,1,.36,1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link.active::after {
+  transform: scaleX(1);
+  background: var(--navy);
+}
+
+/*
+  WHAT:  Shimmer glint on nav CTA button
+  WHERE: .nav-cta
+*/
+.nav-cta {
+  position: relative;
+  overflow: hidden;
+}
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  transition: none;
+}
+.nav-cta:hover::before { animation: shimmerSweep .5s ease forwards; }
+
+/*
+  WHAT:  Hamburger → X morph
+  WHERE: <button class="hbg" id="hbg"> — 3 <span> children
+  HOW:   JS adds class="open" to #hbg on menu open (see animations.js)
+*/
+.hbg span {
+  transition: transform .28s cubic-bezier(.22,1,.36,1),
+              opacity   .2s  ease,
+              background .2s ease;
+  transform-origin: center;
+}
+.hbg.open span:nth-child(1) { transform: translateY(6.5px)  rotate(45deg);  }
+.hbg.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hbg.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+
+/* ══════════════════════════════════════════════
+   3. MOBILE NAV
+   Uses CSS animations (not transitions) so they
+   fire correctly even after display:none → flex.
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Panel slides down + fades in on open
+  WHERE: <div class="mob-nav" id="mobNav">
+  HOW:   .open class already added by script.js
+*/
+.mob-nav.open {
+  animation: mobPanelIn .3s cubic-bezier(.22,1,.36,1) both;
+}
+
+/*
+  WHAT:  Each nav link staggers in from below
+  WHERE: Direct children of .mob-nav
+*/
+.mob-nav.open > a,
+.mob-nav.open > span.mob-services-label,
+.mob-nav.open > .mob-divider {
+  animation: mobItemIn .35s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Stagger delays for each child */
+.mob-nav.open > *:nth-child(1)  { animation-delay: .04s; }
+.mob-nav.open > *:nth-child(2)  { animation-delay: .08s; }
+.mob-nav.open > *:nth-child(3)  { animation-delay: .12s; }
+.mob-nav.open > *:nth-child(4)  { animation-delay: .16s; }
+.mob-nav.open > *:nth-child(5)  { animation-delay: .20s; }
+.mob-nav.open > *:nth-child(6)  { animation-delay: .24s; }
+.mob-nav.open > *:nth-child(7)  { animation-delay: .28s; }
+.mob-nav.open > *:nth-child(8)  { animation-delay: .32s; }
+
+/* Mobile sub-service items stagger */
+.mob-services-sub.open a {
+  animation: mobItemIn .3s cubic-bezier(.22,1,.36,1) both;
+}
+.mob-services-sub.open a:nth-child(1)  { animation-delay: .03s; }
+.mob-services-sub.open a:nth-child(2)  { animation-delay: .07s; }
+.mob-services-sub.open a:nth-child(3)  { animation-delay: .11s; }
+.mob-services-sub.open a:nth-child(4)  { animation-delay: .15s; }
+.mob-services-sub.open a:nth-child(5)  { animation-delay: .19s; }
+.mob-services-sub.open a:nth-child(6)  { animation-delay: .23s; }
+.mob-services-sub.open a:nth-child(7)  { animation-delay: .27s; }
+.mob-services-sub.open a:nth-child(8)  { animation-delay: .31s; }
+.mob-services-sub.open a:nth-child(9)  { animation-delay: .35s; }
+.mob-services-sub.open a:nth-child(10) { animation-delay: .39s; }
+
+/* Active state for mobile nav links (tap feedback) */
+.mob-nav > a:active { color: var(--gold); }
+
+
+/* ══════════════════════════════════════════════
+   4. HERO SECTION
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Pulsing ring around the hero eyebrow dot
+  WHERE: .hero-eyebrow .dot
+*/
+.hero-eyebrow .dot {
+  animation: pulse 2.5s ease-in-out infinite,
+             ringPulse 2.5s ease-in-out infinite;
+}
+
+/*
+  WHAT:  Floating badge bobs up and down (desktop only)
+  WHERE: .img-badge (the stat badge overlaid on section images)
+*/
+@media (min-width: 768px) {
+  .img-badge {
+    will-change: transform;
+    animation: floatBadge 4s ease-in-out infinite;
+    animation-delay: .8s;
+  }
+}
+
+/*
+  WHAT:  Hero cards get GPU layer and active tap state
+  WHERE: .hero-card
+*/
+.hero-card {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+.hero-card:active {
+  transform: scale(.97);
+  transition-duration: .08s;
+}
+
+/*
+  WHAT:  Breadcrumb on inner pages fades in from left
+  WHERE: .breadcrumb (on service/about/contact pages)
+*/
+.breadcrumb {
+  animation: breadIn .5s .1s ease both;
+}
+
+/*
+  WHAT:  Inner page hero tag badge fades up
+  WHERE: .hip-tag
+*/
+.hip-tag {
+  animation: fadeUp .5s .05s var(--ease) both;
+}
+
+
+/* ══════════════════════════════════════════════
+   5. BUTTONS
+   GPU-promoted, shimmer on primary, ripple via JS,
+   active press feedback on all, tap states mobile.
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Promote all buttons to GPU composite layer
+  WHERE: All .btn variants
+*/
+.btn {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+
+/*
+  WHAT:  Shimmer glint on primary dark button hover
+  WHERE: .btn-dark
+*/
+.btn-dark::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 38%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.11), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+}
+.btn-dark:hover::before { animation: shimmerSweep .5s ease forwards; }
+
+/*
+  WHAT:  Ripple element (injected by animations.js on click)
+  WHERE: Inside .btn — any button type
+*/
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.28);
+  transform: scale(0);
+  animation: rippleOut .6s linear forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gold button ripple is slightly darker */
+.btn-gold .ripple { background: rgba(255,255,255,.22); }
+.btn-outline .ripple { background: rgba(27,56,105,.08); }
+
+/*
+  WHAT:  Press-down on all buttons (desktop + mobile)
+  WHERE: All .btn variants on :active
+*/
+.btn:active {
+  transform: translateY(0) scale(.97) translateZ(0);
+  transition-duration: .07s;
+}
+.btn-dark:active  { box-shadow: 0 2px 8px rgba(27,56,105,.18) !important; }
+.btn-gold:active  { box-shadow: 0 2px 8px rgba(201,152,42,.2) !important; }
+
+/*
+  WHAT:  Submit form button press + loading feedback
+  WHERE: .fsub
+*/
+.fsub {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  position: relative;
+  overflow: hidden;
+}
+.fsub:active {
+  transform: scale(.98);
+  transition-duration: .07s;
+}
+
+
+/* ══════════════════════════════════════════════
+   6. CARDS (all types)
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  GPU promote all card types
+  WHERE: All card variants
+*/
+.card,
+.hero-card,
+.cap-card,
+.office-card,
+.vision-card,
+.team-card,
+.cta-card {
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+/* ── Standard .card ── */
+/*
+  WHAT:  Icon subtle bob on card hover
+  WHERE: .card-icon (emoji/icon inside .card)
+*/
+.card-icon {
+  display: inline-block;
+  will-change: transform;
+  transition: transform .25s cubic-bezier(.22,1,.36,1);
+}
+.card:hover .card-icon { transform: scale(1.12) translateY(-3px); }
+
+/*
+  WHAT:  Mobile tap state for cards
+  WHERE: .card:active
+*/
+.card:active {
+  transform: scale(.99) translateZ(0);
+  transition-duration: .08s;
+}
+
+/* ── .cap-card ── */
+.cap-icon {
+  display: inline-block;
+  will-change: transform;
+  transition: transform .25s cubic-bezier(.22,1,.36,1);
+}
+.cap-card:hover .cap-icon { transform: scale(1.15) translateY(-3px); }
+.cap-card:active { transform: scale(.99) translateZ(0); transition-duration: .08s; }
+
+/* ── .vision-card ── */
+/*
+  WHAT:  Left gold border creeps in on hover + gentle slide right
+  WHERE: .vision-card
+*/
+.vision-card {
+  border-left: 3px solid transparent;
+  transition: border-left-color .28s ease,
+              box-shadow .28s ease,
+              transform .28s cubic-bezier(.22,1,.36,1);
+}
+.vision-card:hover {
+  border-left-color: var(--gold);
+  box-shadow: var(--shadow2);
+  transform: translateX(4px) translateZ(0);
+}
+.vision-card:active { transform: translateX(2px) scale(.99) translateZ(0); }
+
+/* ── .val-item ── */
+/*
+  WHAT:  Very subtle scale lift on hover
+  WHERE: .val-item grid cells
+*/
+.val-item {
+  will-change: transform;
+  transition: background .22s ease, transform .22s ease;
+}
+.val-item:hover { transform: scale(1.02) translateZ(0); }
+.val-item:active { transform: scale(.99) translateZ(0); }
+
+/* ── .office-card ── */
+.office-card:active { transform: scale(.99) translateZ(0); }
+
+/* ── .team-card ── */
+/*
+  WHAT:  Subtle gradient overlay fades in on hover
+  WHERE: .team-card pseudo-element
+*/
+.team-card {
+  position: relative;
+  will-change: transform, border-color;
+}
+.team-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(to bottom, transparent 55%, rgba(27,56,105,.22));
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.team-card:hover::after { opacity: 1; }
+.team-card:active { transform: scale(.98) translateZ(0); }
+
+
+/* ══════════════════════════════════════════════
+   7. PILLARS & STEP ROWS
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Left gold bar slides in + row indents on hover
+  WHERE: .pillar rows in the "What We Do" section
+*/
+.pillar {
+  border-left: 2px solid transparent;
+  transition: background .2s ease,
+              border-left-color .22s ease,
+              padding-left .22s cubic-bezier(.22,1,.36,1);
+}
+.pillar:hover {
+  border-left-color: var(--gold);
+  padding-left: 1.65rem;
+}
+.pillar:active { background: var(--white); }
+
+/*
+  WHAT:  Pillar number scales up on hover
+  WHERE: .pil-n inside .pillar
+*/
+.pil-n {
+  will-change: transform, color;
+  transition: transform .22s ease, color .22s ease;
+}
+.pillar:hover .pil-n {
+  transform: scale(1.1);
+  color: var(--gold2);
+}
+
+/*
+  WHAT:  Step row indents + number circle glows on hover
+  WHERE: .step-row and .step-n in the "How We Help" section
+*/
+.step-row {
+  will-change: padding-left;
+  transition: padding-left .22s cubic-bezier(.22,1,.36,1);
+}
+.step-row:hover { padding-left: .55rem; }
+
+.step-n {
+  will-change: transform, box-shadow;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.step-row:hover .step-n {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 5px rgba(201,152,42,.14);
+}
+
+
+/* ══════════════════════════════════════════════
+   8. STATS BAND
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Each stat number pops in when scrolled into view
+  WHERE: .stat-n inside .stat-box (which gets .vis from scroll observer)
+  HOW:   stat-box already has .rv class → gets .vis added by script.js
+         The animation fires on .stat-box.vis .stat-n
+*/
+.stat-box.vis .stat-n {
+  animation: statPop .6s cubic-bezier(.22,1,.36,1) both;
+}
+.stat-box.vis.d1 .stat-n { animation-delay: .08s; }
+.stat-box.vis.d2 .stat-n { animation-delay: .16s; }
+.stat-box.vis.d3 .stat-n { animation-delay: .24s; }
+
+/*
+  WHAT:  Stat label fades in slightly after number
+  WHERE: .stat-l inside .stat-box
+*/
+.stat-l {
+  opacity: 0;
+  transition: opacity .5s ease .3s;
+}
+.stat-box.vis .stat-l { opacity: 1; }
+.stat-box.vis.d1 .stat-l { transition-delay: .38s; }
+.stat-box.vis.d2 .stat-l { transition-delay: .46s; }
+.stat-box.vis.d3 .stat-l { transition-delay: .54s; }
+
+
+/* ══════════════════════════════════════════════
+   9. DROPDOWN MENU
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Dropdown slides down + fades in when opened
+  WHERE: .drop (the mega-menu panel)
+  HOW:   JS adds .drop-visible class (see animations.js)
+         We animate on that class, not inline display:grid
+*/
+.drop.drop-visible {
+  animation: dropSlide .22s cubic-bezier(.22,1,.36,1) both;
+}
+
+/*
+  WHAT:  Drop-item icon bounces on hover
+  WHERE: .drop-icon inside .drop-item
+*/
+.drop-icon {
+  will-change: transform, background;
+  transition: transform .2s cubic-bezier(.22,1,.36,1),
+              background .15s ease;
+}
+.drop-item:hover .drop-icon {
+  animation: iconBounce .32s cubic-bezier(.22,1,.36,1) both;
+  background: var(--gold-b);
+}
+
+/*
+  WHAT:  Drop-item text slides right on hover
+  WHERE: .drop-label inside .drop-item
+*/
+.drop-label {
+  transition: transform .18s ease;
+  display: inline-block;
+}
+.drop-item:hover .drop-label { transform: translateX(3px); }
+
+
+/* ══════════════════════════════════════════════
+   10. FORM FIELDS
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Input lifts very slightly on focus
+  WHERE: input, textarea, select
+*/
+input, textarea, select {
+  will-change: border-color, box-shadow, transform;
+  transition: border-color .2s ease,
+              box-shadow  .2s ease,
+              transform   .18s ease,
+              background  .2s ease;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  transform: translateY(-1px);
+}
+
+/*
+  WHAT:  Label colour shifts to gold on focus
+  WHERE: label inside .fg group
+*/
+.fg {
+  position: relative;
+}
+label {
+  transition: color .2s ease;
+  will-change: color;
+}
+/* This requires JS to add .focused class to .fg — see animations.js */
+.fg.focused > label { color: var(--gold); }
+
+
+/* ══════════════════════════════════════════════
+   11. SECTION LABELS & HEADINGS
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  The gold line before .label grows from 0 to 24px on reveal
+  WHERE: .label::before pseudo-element
+  HOW:   The label itself usually has .rv class.
+         We animate when parent's .rv gets .vis.
+*/
+.label::before {
+  width: 0;
+  transition: width .45s cubic-bezier(.22,1,.36,1);
+}
+/* When an ancestor is visible (or label is not in a .rv element) */
+.vis > .label::before,
+.vis .label::before,
+:not(.rv) > .label::before {
+  width: 24px;
+}
+/* When label itself is the .rv element */
+.label.vis::before { width: 24px; }
+
+/*
+  WHAT:  Section h2 titles: no extra animation (already via .rv)
+         But add letter-spacing breath on hover for desktop
+  WHERE: h2.st
+*/
+@media (hover: hover) {
+  h2.st {
+    transition: letter-spacing .4s ease;
+    cursor: default;
+  }
+  h2.st:hover { letter-spacing: -.01em; }
+}
+
+
+/* ══════════════════════════════════════════════
+   12. FOOTER
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Footer nav links get animated underline sweep
+  WHERE: .footer-col ul a
+*/
+.footer-col ul a {
+  position: relative;
+  padding-bottom: 1px;
+}
+.footer-col ul a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--gold2);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .2s cubic-bezier(.22,1,.36,1);
+}
+.footer-col ul a:hover::after { transform: scaleX(1); }
+
+/*
+  WHAT:  Footer email link hover underline
+  WHERE: .footer-brand .f-email
+*/
+.footer-brand .f-email {
+  position: relative;
+  padding-bottom: 2px;
+}
+.footer-brand .f-email::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--gold2);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .2s ease;
+}
+.footer-brand .f-email:hover::after { transform: scaleX(1); }
+
+/*
+  WHAT:  Topbar email same treatment
+  WHERE: .topbar-email
+*/
+.topbar-email {
+  position: relative;
+  padding-bottom: 1px;
+}
+.topbar-email::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--gold2);
+  opacity: .6;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .2s ease;
+}
+.topbar-email:hover::after { transform: scaleX(1); }
+
+
+/* ══════════════════════════════════════════════
+   13. MISC — Chips, Related Links, Office Email
+══════════════════════════════════════════════ */
+
+/*
+  WHAT:  Related service chips lift + scale on hover
+  WHERE: .related-chip
+*/
+.related-chip {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+}
+.related-chip:hover {
+  transform: translateY(-3px) scale(1.025) translateZ(0);
+  box-shadow: 0 6px 20px rgba(27,56,105,.1);
+}
+.related-chip:active {
+  transform: scale(.97) translateZ(0);
+  transition-duration: .07s;
+}
+
+/*
+  WHAT:  Office email link: gold underline sweep
+  WHERE: .office-email
+*/
+.office-email {
+  position: relative;
+  overflow: hidden;
+}
+.office-email::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .22s ease;
+}
+.office-email:hover::after { transform: scaleX(1); }
+
+/*
+  WHAT:  CTA card has gentle hover glow
+  WHERE: .cta-card
+*/
+.cta-card {
+  transition: box-shadow .3s ease;
+}
+.cta-card:hover {
+  box-shadow: 0 12px 40px rgba(27,56,105,.22);
+}
+
+/*
+  WHAT:  Nav link CTA (Get In Touch) gets same active press
+  WHERE: .nav-cta
+*/
+.nav-cta:active { transform: translateY(1px) scale(.98); }
+
+
+/* ══════════════════════════════════════════════
+   14. REDUCED MOTION — ACCESSIBILITY
+   Must be last so it overrides everything above.
+   Applies to all users who opt into reduced motion
+   in their OS/browser accessibility settings.
+══════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1      !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto   !important;
+  }
+
+  /* Un-hide reveal elements instantly */
+  .rv, .rvl, .rvr {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Freeze floating badge */
+  .img-badge { animation: none !important; }
+
+  /* Freeze eyebrow dot */
+  .hero-eyebrow .dot { animation: none !important; }
+
+  /* Freeze marquee */
+  .strip-inner { animation: none !important; }
+
+  /* Stat labels instantly visible */
+  .stat-l { opacity: 1 !important; transition: none !important; }
+
+  /* Nav underlines: always show on active, never animate */
+  .nav-link::after { transition: none !important; }
+  .nav-link.active::after { transform: scaleX(1) !important; }
+
+  /* Mobile nav: no slide — just show */
+  .mob-nav.open      { animation: none !important; }
+  .mob-nav.open > *  { animation: none !important; opacity: 1 !important; transform: none !important; }
+
+  /* Label line: always full width */
+  .label::before { transition: none !important; width: 24px !important; }
+
+  /* No hover transforms (just colour change is fine) */
+  .card:hover,
+  .cap-card:hover,
+  .val-item:hover,
+  .vision-card:hover,
+  .related-chip:hover,
+  .hero-card:hover,
+  .team-card:hover,
+  .office-card:hover {
+    transform: none !important;
+  }
+
+  /* Footer underlines: instant */
+  .footer-col ul a::after,
+  .footer-brand .f-email::after,
+  .topbar-email::after,
+  .office-email::after,
+  .nav-link::after {
+    transition: none !important;
+  }
+}
